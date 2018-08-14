@@ -1,43 +1,45 @@
-## 后台管理基础框架
-
+## hsweb  3.0
+[![Maven metadata URI](https://img.shields.io/maven-metadata/v/http/nexus.hsweb.me/content/groups/public/org/hswebframework/web/hsweb-framework/maven-metadata.xml.svg)](http://nexus.hsweb.me/#nexus-search;quick~hsweb-framework)
+[![Codecov](https://codecov.io/gh/hs-web/hsweb-framework/branch/master/graph/badge.svg)](https://codecov.io/gh/hs-web/hsweb-framework/branch/master)
+[![Sonar Coverage](https://sonarcloud.io/api/project_badges/measure?project=org.hswebframework.web:hsweb-framework&metric=alert_status)](https://sonarcloud.io/dashboard?id=org.hswebframework.web%3Ahsweb-framework)
+[![Sonar Bugs](https://sonarcloud.io/api/project_badges/measure?project=org.hswebframework.web:hsweb-framework&metric=bugs)](https://sonarcloud.io/dashboard?id=org.hswebframework.web%3Ahsweb-framework)
 [![Build Status](https://travis-ci.org/hs-web/hsweb-framework.svg?branch=master)](https://travis-ci.org/hs-web/hsweb-framework)
 [![License](https://img.shields.io/badge/license-Apache%202-4EB1BA.svg?style=flat-square)](https://www.apache.org/licenses/LICENSE-2.0.html)
+[![Insight.io](https://www.insight.io/repoBadge/github.com/hs-web/hsweb-framework)](https://insight.io/github.com/hs-web/hsweb-framework)
 
-### 主要功能
-1. 通用dao,service,controller类，增删改查直接继承即可.
-2. 通用mybatis配置文件,支持多种条件查询自动生成,支持自动生成insert,update,delete语句,支持和查询相同的各种条件.
-3. 实现用户,权限管理;基于aop,注解,精确到按钮的权限控制.
-4. 动态表单功能,可在前端设计表单,动态生成数据库表,提供统一的增删改查接口.
-5. 在线代码生成器,可自定义模板.
-6. 动态多数据源,支持数据源热加载,热切换,支持分布式事务.
-7. 数据库支持 mysql,oracle,h2.
-8. websocket支持.
-9. 定时调度支持,可在页面配置定时任务,编写任务脚本执行。
+ [贡献代码](CONTRIBUTING.md)  [文档](https://github.com/hs-web/hsweb-framework/wiki/)
 
-### 其他组件
-1. [hsweb-easy-orm](https://github.com/hs-web/hsweb-easy-orm) :为动态表单设计的orm框架
-2. [hsweb-expands-compress](https://github.com/hs-web/hsweb-expands/tree/master/hsweb-expands-compress) :文件压缩，解压操作
-3. [hsweb-expands-office](https://github.com/hs-web/hsweb-expands/tree/master/hsweb-expands-office) :office文档操作( excel读写，模板导出，word模板导出)
-4. [hsweb-expands-request](https://github.com/hs-web/hsweb-expands/tree/master/hsweb-expands-request): 请求模拟(http,ftp)
-5. [hsweb-expands-script](https://github.com/hs-web/hsweb-expands/tree/master/hsweb-expands-script):动态脚本,动态编译执行java,groovy,javascript,spel,ognl....
-6. [hsweb-expands-shell](https://github.com/hs-web/hsweb-expands/tree/master/hsweb-expands-shell):shell执行
-7. [hsweb-expands-template](https://github.com/hs-web/hsweb-expands/tree/master/hsweb-expands-template):各种模板引擎
+## 应用场景
+1. 后台管理系统.
+2. 完全开源的后台管理系统.
+3. 细粒度权限控制的后台管理系统.
+4. 模块化的后台管理系统.
+5. 功能可拓展的后台管理系统.
+6. 集成各种常用功能的后台管理系统.
+7. 前后分离的后台管理系统.
 
-# 安装
-```bash
-    $ git clone https://github.com/hs-web/hsweb-framework.git
-    $ cd hsweb-framework
-    $ mvn install -DskiptTests
-```
+注意:
+项目主要基于`spring-boot`,`mybatis`. 在使用`hsweb`之前,你应该对`spring-boot`有一定的了解.
 
-# 此版本待完善功能
-1. 单元测试编写
-2. 项目文档编写
-3. 增加定时调度,支持集群,任务采用脚本方式编写.
-4. 完善数据库持续集成,版本更新时自动更新数据库结构.
-5. 完善动态表单发布,表单发生变化后,自动重新发布(解决集群下,表单配置不一致).
+项目模块太多?不要被吓到.我们不推荐将本项目直接`clone`后修改,运行.而是使用maven依赖的方式使用`hsweb`. 
+选择自己需要的模块进行依赖,正式版发布后,所有模块都将发布到maven中央仓库.
+你可以参照[demo](https://github.com/hs-web/hsweb3-demo)进行使用.
 
-# 演示
-1. 示例:[demo.hsweb.me](http://demo.hsweb.me)
-2. 测试用户:test (test2,test3,test4....) 密码:123456 
-3. 演示项目源码:[hsweb-platform](https://github.com/hs-web/hsweb-platform)
+## 文档
+各个模块的使用方式查看对应模块下的 `README.md`,在使用之前,
+你可以先粗略浏览一下各个模块,对每个模块的作用有大致的了解.
+
+## 模块简介
+
+| 模块       | 说明          |   进度 |
+| ------------- |:-------------:| ----|
+|[hsweb-authorization](hsweb-authorization)|权限控制| 90%|
+|[hsweb-commons](hsweb-commons) |基础通用功能| 90%|
+|[hsweb-concurrent](hsweb-concurrent)|并发包,缓存,锁,计数器等| 80%|
+|[hsweb-core](hsweb-core)|框架核心,基础工具类| 90%|
+|[hsweb-datasource](hsweb-datasource)|数据源| 90%|
+|[hsweb-logging](hsweb-logging)| 日志|  100%|
+|[hsweb-message](hsweb-message)|mq,websocket...| 80%|
+|[hsweb-starter](hsweb-starter)|模块启动器| 90%|
+|[hsweb-system](hsweb-system)|**系统常用功能**| 80%|
+|[hsweb-thirdparty](hsweb-thirdparty)| 第三方插件 | 100% |
